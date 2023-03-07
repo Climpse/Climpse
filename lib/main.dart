@@ -1,4 +1,5 @@
 import 'package:climpse/pages/home/home_page.dart';
+import 'package:climpse/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,8 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Aluguel de carros',
-      home: HomePage(),
       debugShowCheckedModeBanner: false,
+      initialRoute: "/",
+      routes: {
+        "/": (context) => HomePage(),
+        "/login": (context) => LoginPage(),
+      },
     );
   }
 }
