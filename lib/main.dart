@@ -1,6 +1,7 @@
 import 'package:climpse/pages/home/home_page.dart';
 import 'package:climpse/pages/initial/initial_page.dart';
 import 'package:climpse/pages/login/login_page.dart';
+import 'package:climpse/pages/register/user/register_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => InitialPage(),
         "/login": (context) => LoginPage(),
-        "/home": (context) => HomePage()
+        "/home": (context) => HomePage(),
+        "/register": (context) => RegisterPage(),
       },
     );
   }

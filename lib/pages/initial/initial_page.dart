@@ -38,7 +38,9 @@ class _InitialPageState extends State<InitialPage> {
             child: OutlinedButton(
               child: const Text('Cadastre-se'),
               style: TextButton.styleFrom(foregroundColor: Colors.black),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "/register");
+              },
             ),
           ),
         ],
