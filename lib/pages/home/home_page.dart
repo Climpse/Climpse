@@ -6,7 +6,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
@@ -24,29 +23,23 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          TextButton(
-            onPressed: () {},
-            style: ButtonStyle(
-              shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(width: 3, color: Colors.black),
-                ),
-              ),
+          Container(
+            width: 200,
+            child: OutlinedButton(
+              child: const Text('Login'),
+              style: TextButton.styleFrom(foregroundColor: Colors.black),
+              onPressed: () {
+                Navigator.pushNamed(context, "/login");
+              },
             ),
-            child: Text('Login'),
           ),
-          TextButton(
-            onPressed: () {},
-            style: ButtonStyle(
-              shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(width: 3, color: Colors.black),
-                ),
-              ),
+          Container(
+            width: 200,
+            child: OutlinedButton(
+              child: const Text('Cadastre-se'),
+              style: TextButton.styleFrom(foregroundColor: Colors.black),
+              onPressed: () {},
             ),
-            child: Text('Cadastr-se'),
           ),
         ],
       ),
