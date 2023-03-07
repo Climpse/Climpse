@@ -7,22 +7,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Container(
-            child: Text("Home Page"),
-          ),
-          Container(
-            child: TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "/");
-              },
-              child: Text("Voltar"),
-            ),
-          ),
-        ],
-      ),
-    );
+    return Scaffold();
   }
 }
