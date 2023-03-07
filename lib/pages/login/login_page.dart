@@ -1,3 +1,4 @@
+import 'package:climpse/hooks/use_user.hook.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,10 +13,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   TextEditingController cpfController = TextEditingController();
-
-  void enviarDados(dados) {
-    print(dados);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +29,6 @@ class _LoginPageState extends State<LoginPage> {
                     height: 150,
                     child: TextButton(
                         onPressed: () {
-                          // return cpfController.text
                           Navigator.pushNamed(context, "/");
                         },
                         child: Text("Voltar"))),
@@ -51,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               child: TextButton(
                   onPressed: () {
-                    // return cpfController.text
+                    //login(cpf: cpfController.text);
                     Navigator.pushNamed(context, "/home");
                   },
                   child: Text("Logar")),
