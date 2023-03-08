@@ -1,5 +1,5 @@
 import 'package:climpse/pages/home/widgets/home_page_screen.dart';
-import 'package:climpse/pages/initial/initial_page.dart';
+import 'package:climpse/pages/personal_account/personal_account_page.dart';
 import 'package:climpse/pages/trending/trending_page_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _telas = [
     NewPageScreen("Alugar"),
     TrendingPage("Trending"),
-    NewPageScreen("Minha conta")
+    PersonalAccountPage("Minha conta")
   ];
 
   int _indiceAtual = 0;
