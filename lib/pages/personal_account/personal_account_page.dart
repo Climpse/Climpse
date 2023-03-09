@@ -48,6 +48,7 @@ class PersonalAccountPage extends StatelessWidget {
                   ),
                 ],
               ),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
             ],
           ),
         ),
