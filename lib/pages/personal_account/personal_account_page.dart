@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PersonalAccountPage extends StatelessWidget {
-  final String texto;
-
-  PersonalAccountPage(this.texto);
+  const PersonalAccountPage({super.key});
 
   //TODO VERIFICAÇÃO DE SEXO PARA SETAR AVATAR RESPECTIVO
 
@@ -48,7 +46,11 @@ class PersonalAccountPage extends StatelessWidget {
                   ),
                 ],
               ),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
+              IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/edit/user');
+                  },
+                  icon: const Icon(Icons.edit)),
             ],
           ),
         ),
