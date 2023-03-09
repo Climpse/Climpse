@@ -1,5 +1,5 @@
-import 'package:climpse/pages/home/widgets/home_page_screen.dart';
 import 'package:climpse/pages/personal_account/personal_account_page.dart';
+import 'package:climpse/pages/rent/rent_car_page.dart';
 import 'package:climpse/pages/trending/trending_page_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Widget> _telas = [
-    NewPageScreen("Alugar"),
+    RentCarPage("Alugar"),
     TrendingPage("Trending"),
     PersonalAccountPage("Minha conta")
   ];
