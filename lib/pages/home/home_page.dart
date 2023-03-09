@@ -12,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _telas = [
     RentCarPage("Alugar"),
     TrendingPage("Trending"),
-    PersonalAccountPage("Minha conta")
+    const PersonalAccountPage(),
   ];
 
   int _indiceAtual = 0;
