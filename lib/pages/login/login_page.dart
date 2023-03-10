@@ -1,7 +1,10 @@
 import 'package:climpse/hooks/use_user.hook.dart';
+import 'package:climpse/widgets/return_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -21,19 +24,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 60.0),
-              child: Center(
-                child: Container(
-                    width: 200,
-                    height: 150,
-                    child: TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, "/");
-                        },
-                        child: Text("Voltar"))),
-              ),
-            ),
+            const ReturnButton('Voltar'),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
@@ -44,13 +35,12 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Container(
-              child: TextButton(
-                  onPressed: () {
-                    //login(cpf: cpfController.text);
-                    Navigator.pushNamed(context, "/home");
-                  },
-                  child: Text("Logar")),
+            TextButton(
+              onPressed: () {
+                //login(cpf: cpfController.text);
+                Navigator.pushNamed(context, "/home");
+              },
+              child: const Text("Logar"),
             ),
           ],
         ),
