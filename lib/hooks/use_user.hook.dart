@@ -9,7 +9,7 @@ final dio = Dio();
 login({cpf}) async {
   try {
     final response = await dio.get('${BaseUrl.baseUrl}/usuarios/buscar/$cpf');
-    print(response);
+    return response;
   } catch (e) {
     return 'error';
   }
