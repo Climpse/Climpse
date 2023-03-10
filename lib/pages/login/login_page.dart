@@ -1,4 +1,6 @@
+import 'package:climpse/globals/global_variables.dart';
 import 'package:climpse/hooks/use_user.hook.dart';
+import 'package:climpse/pages/home/home_page.dart';
 import 'package:climpse/widgets/return_button.dart';
 import 'package:flutter/material.dart';
 
@@ -36,8 +38,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             TextButton(
-              onPressed: () {
-                //login(cpf: cpfController.text);
+              onPressed: () async {
+                final userId = await login(cpf: cpfController.text);
+                globalUserId = userId;
                 Navigator.pushNamed(context, "/home");
               },
               child: const Text("Logar"),
