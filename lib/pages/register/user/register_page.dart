@@ -1,3 +1,4 @@
+import 'package:climpse/hooks/use_user.hook.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -96,10 +97,16 @@ class _RegisterPageState extends State<RegisterPage> {
             Container(
               child: TextButton(
                   onPressed: () {
-                    // return cpfController.text
-                    Navigator.pushNamed(context, "/home");
+                    registerUser(
+                        nome: nameController.text,
+                        cpf: cpfController.text,
+                        email: emailController.text,
+                        senha: passwordController.text,
+                        sexo: genreController.text,
+                        celular: phoneNumberController.text,
+                        context: context);
                   },
-                  child: Text("Criar Conta")),
+                  child: const Text("Criar Conta")),
             ),
           ],
         ),

@@ -30,3 +30,27 @@ Future<User> getUserDetails({required int id}) async {
     celular: response['celular'],
   );
 }
+
+registerUser({
+  required String nome,
+  required String cpf,
+  required String email,
+  required String senha,
+  required String sexo,
+  required String celular,
+  required context,
+}) async {
+  final response = await dio.post(
+    CREATE_USER_URL,
+    data: {
+      'nome': nome,
+      'cpf': cpf,
+      'email': email,
+      'senha': senha,
+      'sexo': sexo,
+      'celular': celular
+    },
+  );
+  globals.userId = response.data['id'];
+  Navigator.pushNamed(context, "/home");
+}
