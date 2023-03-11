@@ -19,6 +19,13 @@ login({context, cpf}) async {
   }
 }
 
+removeUser({context}) async {
+  await dio.delete('$DELETE_USER_URL/${globals.userId}');
+  Navigator.pushNamed(context, '/');
+  showCustomDialog(context, 'Sua conta foi deletada.',
+      'Obrigado por utilizar nosso aplicativo');
+}
+
 Future<User> getUserDetails({required int id}) async {
   final response = (await dio.get('${BaseUrl.baseUrl}/usuarios/$id')).data;
   return User(
