@@ -1,17 +1,16 @@
-import 'package:climpse/globals/global_variables.dart';
 import 'package:climpse/hooks/use_user.hook.dart';
-import 'package:climpse/pages/home/home_page.dart';
 import 'package:climpse/widgets/return_button.dart';
 import 'package:flutter/material.dart';
+import 'package:climpse/globals/global_variables.dart' as globals;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
@@ -40,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
             TextButton(
               onPressed: () async {
                 final userId = await login(cpf: cpfController.text);
-                globalUserId = userId;
+                globals.userId = userId;
                 Navigator.pushNamed(context, "/home");
               },
               child: const Text("Logar"),

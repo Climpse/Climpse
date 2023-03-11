@@ -1,3 +1,3 @@
 library globals;
 
-int globalUserId = 0;
+int userId = 0;
