@@ -17,65 +17,68 @@ class _PersonalAccountPageState extends State<PersonalAccountPage> {
     super.initState();
   }
 
+  String avatarGenderImage = '';
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView(
-              children: <Widget>[
-                Image.network(images.femaleAvatar),
-                FutureBuilder<User>(
-                  future: getUserDetails(id: globals.globalUserId),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (snapshot.hasData) {
-                      User userData = snapshot.data!;
-                      return ListView(
-                        shrinkWrap: true,
-                        children: <Widget>[
-                          ListTile(
-                            leading: const Icon(Icons.person),
-                            title: Text(userData.nome.toString()),
-                          ),
-                          ListTile(
-                            leading: const Icon(Icons.lock),
-                            title: Text(userData.cpf.toString()),
-                          ),
-                          ListTile(
-                            leading: const Icon(Icons.email),
-                            title: Text(userData.email.toString()),
-                          ),
-                          ListTile(
-                            leading: const Icon(Icons.password),
-                            title: Text(userData.senha.toString()),
-                          ),
-                          ListTile(
-                            leading: const Icon(Icons.person_outlined),
-                            title: Text(userData.sexo.toString()),
-                          ),
-                          ListTile(
-                            leading: const Icon(Icons.phone),
-                            title: Text(userData.celular.toString()),
-                          ),
-                        ],
-                      );
-                    }
-                    return const Text('Carregando informações');
-                  },
+    return FutureBuilder<User>(
+      future: getUserDetails(id: globals.userId),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasData) {
+          User userData = snapshot.data!;
+          userData.sexo == 'masculino'
+              ? avatarGenderImage = images.maleAvatar
+              : avatarGenderImage = images.femaleAvatar;
+          return Column(
+            children: [
+              Expanded(
+                child: ListView(
+                  children: <Widget>[
+                    Image.network(avatarGenderImage),
+                  ],
                 ),
-                IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/edit/user');
-                    },
-                    icon: const Icon(Icons.edit)),
-              ],
-            ),
-          ),
-        ],
-      ),
+              ),
+              ListView(
+                shrinkWrap: true,
+                children: <Widget>[
+                  ListTile(
+                    leading: const Icon(Icons.person),
+                    title: Text(userData.nome.toString()),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.lock),
+                    title: Text(userData.cpf.toString()),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.email),
+                    title: Text(userData.email.toString()),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.password),
+                    title: Text(userData.senha.toString()),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.person_outlined),
+                    title: Text(userData.sexo.toString()),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.phone),
+                    title: Text(userData.celular.toString()),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/edit/user');
+                      },
+                      icon: const Icon(Icons.edit)),
+                ],
+              ),
+            ],
+          );
+        }
+        return const Text('Carregando informações');
+      },
     );
   }
 }
