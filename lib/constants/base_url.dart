@@ -7,3 +7,5 @@ class BaseUrl {
 const String CREATE_USER_URL = '${BaseUrl.baseUrl}/usuarios/criar';
 
 const String DELETE_USER_URL = '${BaseUrl.baseUrl}/usuarios/deletar';
+
+const String getAvailableVehiclesUrl = '${BaseUrl.baseUrl}/veiculos';
