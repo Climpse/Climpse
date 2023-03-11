@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class RentCarItemCard extends StatelessWidget {
-  const RentCarItemCard({super.key});
+  final String name;
+  final String brand;
+  final double carPrice;
+
+  const RentCarItemCard(this.name, this.brand, this.carPrice, {super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,9 +25,9 @@ class RentCarItemCard extends StatelessWidget {
               ListView(
                 shrinkWrap: true,
                 children: <Widget>[
-                  const Text('Sport'),
-                  const Text('Hyundai'),
-                  const Text('20,00/day'),
+                  Text(name),
+                  Text(brand),
+                  Text('R\$$carPrice/dia'),
                   IconButton(
                     onPressed: () {},
                     icon: const Icon(Icons.calendar_month),
