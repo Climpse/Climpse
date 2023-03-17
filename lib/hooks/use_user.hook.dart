@@ -1,3 +1,4 @@
+import 'package:climpse/constants/allowed_users.dart';
 import 'package:climpse/constants/base_url.dart';
 import 'package:climpse/model/user.model.dart';
 import 'package:climpse/widgets/show_custom_dialog.dart';
@@ -9,6 +10,10 @@ final dio = Dio();
 
 login({context, cpf}) async {
   try {
+    if (cpf == cpfAdmin) {
+      Navigator.pushNamed(context, "/admin");
+    }
+
     final response =
         (await dio.get('${BaseUrl.baseUrl}/usuarios/buscar/$cpf')).data;
 
