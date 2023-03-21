@@ -1,3 +1,3 @@
 library globals;
 
-int userId = 0;
+String userId = "";

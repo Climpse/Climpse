@@ -1,7 +1,9 @@
-import 'package:climpse/hooks/use_user.hook.dart';
+import 'package:climpse/provider/users.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
+
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
@@ -24,14 +26,14 @@ class _RegisterPageState extends State<RegisterPage> {
             Padding(
               padding: const EdgeInsets.only(top: 60.0),
               child: Center(
-                child: Container(
+                child: SizedBox(
                     width: 200,
                     height: 150,
                     child: TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, "/");
                         },
-                        child: Text("Voltar"))),
+                        child: const Text("Voltar"))),
               ),
             ),
             Container(
@@ -94,20 +96,18 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            Container(
-              child: TextButton(
-                  onPressed: () {
-                    registerUser(
-                        nome: nameController.text,
-                        cpf: cpfController.text,
-                        email: emailController.text,
-                        senha: passwordController.text,
-                        sexo: genreController.text,
-                        celular: phoneNumberController.text,
-                        context: context);
-                  },
-                  child: const Text("Criar Conta")),
-            ),
+            TextButton(
+                onPressed: () {
+                  registerUser(
+                      nome: nameController.text,
+                      cpf: cpfController.text,
+                      email: emailController.text,
+                      senha: passwordController.text,
+                      sexo: genreController.text,
+                      celular: phoneNumberController.text,
+                      context: context);
+                },
+                child: const Text("Criar Conta")),
           ],
         ),
       ),

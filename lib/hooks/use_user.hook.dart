@@ -31,7 +31,7 @@ removeUser({context}) async {
       'Obrigado por utilizar nosso aplicativo');
 }
 
-Future<User> getUserDetails({required int id}) async {
+Future<User> getUserDetails({required String id}) async {
   final response = (await dio.get('${BaseUrl.baseUrl}/usuarios/$id')).data;
   return User(
     nome: response['nome'],
@@ -41,28 +41,4 @@ Future<User> getUserDetails({required int id}) async {
     sexo: response['sexo'],
     celular: response['celular'],
   );
-}
-
-registerUser({
-  required String nome,
-  required String cpf,
-  required String email,
-  required String senha,
-  required String sexo,
-  required String celular,
-  required context,
-}) async {
-  final response = await dio.post(
-    CREATE_USER_URL,
-    data: {
-      'nome': nome,
-      'cpf': cpf,
-      'email': email,
-      'senha': senha,
-      'sexo': sexo,
-      'celular': celular
-    },
-  );
-  globals.userId = response.data['id'];
-  Navigator.pushNamed(context, "/home");
 }
